@@ -1,0 +1,28 @@
+<p>
+  <b>Description:</b>
+  <%=h @promise.description %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%=h @promise.person %>
+</p>
+
+<p>
+  <b>Creation date:</b>
+  <%=h @promise.created_at %>
+</p>
+
+<p>
+  <b>Expiry date:</b>
+  <%=h @promise.expiry_date %>
+</p>
+
+<p>
+  <b>Implementation date:</b>
+  <%=h @promise.implementation_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_promise_path(@promise) %> |
+<%= link_to 'Back', promises_path %>

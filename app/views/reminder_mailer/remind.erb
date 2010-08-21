@@ -1,0 +1,7 @@
+Dear <%=h @person.name %>,
+
+A gentle reminder that you have the following promises due SOON:
+<% for promise in @person.promises_close_to_expiry do %>
+* <%=h promise.description %> in <%=h distance_of_time_in_words_to_now(promise.expiry_date) %>
+<% end %>
+Cheers!

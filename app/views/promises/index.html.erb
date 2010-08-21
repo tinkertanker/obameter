@@ -1,0 +1,85 @@
+<h1>Obameter, a promise metering system</h1>
+<hr />
+<h3 class="alt prepend-5">Today is <%=h nice_date(Time.now) %></h3>
+<hr />
+
+<% length = @people.length %>
+<% i=0  %>
+<% for person in @people %>
+  <% i += 1 %>
+  <% if i < length %>
+    <div class="span-7 colborder person">
+  <% else %>
+    <div class="span-7 last person">
+  <% end %>
+  
+  <h2><%=h person.name %></h2>
+  <div class="summary">
+    <%=h person.promises.size %> promises made<br/>
+    <%=h person.promises_kept.size %> promises kept<br/>
+    <%=h person.promises_broken.size %> promises broken<br/>
+    <%=h person.promises_in_the_works.size %> promises in the works<br/>
+  </div>
+
+  <hr />
+  <h3>Promises that are in the works</h3>
+
+  <div class="promises-in-the-works">
+  <% for promise in person.promises_in_the_works %>
+    <div class="promise" title="Promised on <%=h nice_date(promise.created_at)%>. Due by <%=h nice_date(promise.expiry_date) %>">
+      <div class="description">
+        <span class="label">#<%=h promise.id %></span> <span><%=h promise.description %></span> 
+      </div>
+
+
+      <h4>
+        <span>You have</span> <span class="label"><%=h distance_of_time_in_words_to_now(promise.expiry_date) %></span> <span> to fulfill this promise</span>
+      </h4>
+
+      <div>
+        <%= link_to 'I\'ve done it!', {:action => "mark_complete", :id => promise.id} %> |
+        <%= link_to 'Edit', edit_promise_path(promise) %> 
+      </div>
+
+    </div><!-- promise -->
+  <% end %>
+  </div><!-- promises-in-the-works -->
+
+  <%= link_to 'New promise', {:action => "new", :id => person.id} %>
+  <hr class="space"/>
+  <hr />
+
+
+  <h3>Record of last few promises</h3>
+
+  <div class="latest-closed-promises">
+    <% for promise in person.latest_closed_promises %>
+      <% if promise.implementation_date.nil? %>
+        <% promise_kept = false %>
+      <% else %>
+        <% promise_kept = true %> 
+      <% end %>
+
+
+    <div class="promise <% if promise_kept %> promise-kept <% else %> promise-broken <% end %>" title="Promised on <%=h nice_date(promise.created_at)%>. Due by <%=h nice_date(promise.expiry_date) %>">
+
+      <div class="promise-status-img">
+        <% if promise_kept %>
+          <img src="images/promise-kept.png" />
+        <% else %>
+          <img src="images/promise-broken.png" />
+        <% end %>
+      </div>
+      <div class="description">
+        <span class="label">#<%=h promise.id %></span> <span><%=h promise.description %></span> 
+      </div>
+
+    </div><!-- promise -->
+    <% end %>
+
+  </div><!-- latest-closed-promises -->
+  </div><!-- person -->
+<% end %>
+
+<hr />
+<%= link_to 'Manage people', people_path %> | <%= link_to 'Manage promises', {:action => "list"} %>

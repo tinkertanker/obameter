@@ -1,0 +1,85 @@
+.person { 
+}
+
+.promise {
+  background-color: #eee;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+.promise-kept {
+  background-color: #dfd;
+}
+
+.promise-broken {
+  background-color: #fdd;
+}
+
+.promise-status-img {
+  float:right;
+}
+
+.promises-in-the-works .promise {
+  background-color: #ffc;
+}
+.name {
+}
+
+.label {
+  font-weight: bold;
+}
+
+.description {
+  padding-bottom: 1em;
+}
+
+.summary {
+  background-color: #eee;
+  border: 1px solid #aaa;
+  padding: 0.5em;
+}
+
+.dates {
+  text-align: right;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

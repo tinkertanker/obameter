@@ -1,0 +1,30 @@
+<h1>Listing promises</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Person</th>
+    <th>Status</th>
+    <th>Expiry date</th>
+    <th>Creation date</th>
+    <th>Implementation date</th>
+  </tr>
+
+<% for promise in @promises %>
+  <tr>
+    <td><%=h promise.description %></td>
+    <td><%=h promise.person %></td>
+    <td><%=h promise.status %></td>
+    <td><%=h promise.expiry_date %></td>
+    <td><%=h promise.created_at %></td>
+    <td><%=h promise.implementation_date %></td>
+    <td><%= link_to 'Show', promise %></td>
+    <td><%= link_to 'Edit', edit_promise_path(promise) %></td>
+    <td><%= link_to 'Destroy', promise, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New promise', new_promise_path %>

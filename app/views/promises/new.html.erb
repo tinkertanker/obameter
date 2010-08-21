@@ -1,0 +1,19 @@
+<h1><%=h @person %> promises to</h1>
+
+<% form_for(@promise) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :to__be_completed_by %><br />
+    <%= select_date(Time.now, :order => [:day, :month, :year]) %>
+  </p>
+    <%= f.hidden_field(:person_id) %>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', promises_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyText
+  status_id: 1
+  expiry_date: 2009-02-12 22:28:51
+  implementation_date: 2009-02-12 22:28:51
+
+two:
+  description: MyText
+  status_id: 1
+  expiry_date: 2009-02-12 22:28:51
+  implementation_date: 2009-02-12 22:28:51
